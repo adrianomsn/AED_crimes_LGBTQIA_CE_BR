@@ -1,5 +1,5 @@
 # AED_crimes_hom_trans_CE_BR
-Projeto voltado para fazer uma análise exploratória de dados sobre criminalidade e violência no estado do Ceará, mais especificamente sobre crimes sexuais, de homofobia e transfobia.
+Projeto voltado para manipulação e análise exploratória de dados sobre criminalidade e violência no estado do Ceará, mais especificamente sobre crimes sexuais, de homofobia e transfobia.
 
 Documentacao com informacoes das bases e scripts para a modelagem dos bancos de dados e analise exploratória sobre crimes sexuais, crimes de homofobia e transfobia no estado do Ceara.
 
