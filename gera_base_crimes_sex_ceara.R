@@ -1,4 +1,4 @@
-#### ------------------------------------------------------------------------------------------------------------####
+#### -----------------------------------------SCRIPT DE MODELAGEM DE DADOS ------------------------------------####
 ###'
 ###'
 ###' MODELAGEM, LIMPEZA E PROCESSAMENTO DOS DADOS SOBRE CRIMES SEXUAIS, DE HOMOFOBIA E TRANSFOBIA NO CEARA
@@ -8,7 +8,7 @@
 ###' 
 ###' OBJETIVO: GERAR UMA BASE DE DADOS TRATADOS PARA UMA ANALISE EXPLORATORIA
 ###' 
-###'  -----------------------------------------------------------------------------------------------------------####
+###'-----------------------------------------------------------------------------------------------------------
 
 # Limpeza
 rm(list = ls())
@@ -27,7 +27,10 @@ pacotes = c(
   "stringi",
   "lubridate",
   "plotly",
-  "RColorBrewer"
+  "RColorBrewer",
+  "geobr",
+  "report",
+  "viridis"
 )
 
 for (x in pacotes) {
@@ -41,7 +44,7 @@ lapply(pacotes, require, character.only = T)
 rm(pacotes)
 
 # Caminhos a serem utilizados
-caminho<- "C:/Users/Pichau/Desktop/TESTE/"
+caminho<- "C:\\Users\\super\\Downloads\\"
 
 # Importa as bases a serem utilizadas
 # Essas bases se concentram em informacoes sobre as vitimas de crimes sexuais, crimes de transfobia ou homofobia
@@ -50,6 +53,9 @@ base_cr_sex <- import(file.path(caminho, "Crimes-Sexuais_2009-a-2023.xlsx"))
 
 base_cr_hom_trans <- import(file.path(caminho, "Homofobia-e-Transfobia.xlsx"))
 
+# Cria versoes originais das bases antes de qualquer alteracao
+base_cr_h_t_og<-base_cr_hom_trans
+base_cr_sex_og<-base_cr_sex
 
 # ---- Padronizacao da base de dados --------------
 
@@ -68,11 +74,20 @@ base_cr_hom_trans <- base_cr_hom_trans %>%
 
 #  Remove acentos dos nomes de variaveis
 
-# Cria funcao de remocao de acentos
+# Cria função de remoção de acentos e substituição de caracteres especiais
 rmacento <- function(colns) {
+  # Transforma caracteres latinos em ASCII
   colns <- stri_trans_general(colns, "Latin-ASCII")
+  
+  # Substitui caracteres especiais
+  colns <- gsub("ç", "c", colns)
+  colns <- gsub("Ç", "C", colns)
+  # Adicione outras substituições se necessário, por exemplo:
+  # colns <- gsub("ß", "ss", colns)
+  # colns <- gsub("ñ", "n", colns)
+  
+  return(colns)
 }
-
 # Remove acentos das observacoes da base
 base_cr_hom_trans <- base_cr_hom_trans %>%
   mutate(across(everything(), rmacento))
@@ -118,6 +133,12 @@ base_cr_hom_trans <- base_cr_hom_trans %>%
   relocate(MES, .after = `DIA DA SEMANA`) %>% 
   arrange(MES)
 
+# A informacao dos meses pelo pacote lubridate gera informacoes de meses com caracteres especiais
+# tipo o mes de março vem com 'ç', dessa forma foi necessario remover novamente com a funcao rmacento
+
+# Remover acentos das variaveis da base
+names(base_cr_hom_trans) <- rmacento(names(base_cr_hom_trans))
+
 # Converte MES em fator para ordenar
 base_cr_hom_trans$MES <- factor(
   base_cr_hom_trans$MES,
@@ -137,6 +158,7 @@ base_cr_hom_trans$MES <- factor(
   ),
   ordered = TRUE
 )
+
 
 # Ordena as observacoes por cronologia do ano
 base_cr_hom_trans <- base_cr_hom_trans %>% 
@@ -173,82 +195,27 @@ base_cr_hom_trans<-base_cr_hom_trans %>%
   mutate(ANO = year(as.Date(DATA, format = "%d/%m/%Y"))) %>% 
   relocate(ANO, .after = MES)
 
-# Exemplo de gráfico de linhas para o número de ocorrências ao longo dos anos
-ocorrencias_por_ano <- base_cr_hom_trans %>%
-  group_by(ANO) %>%
-  summarise(Contagem = n())
 
-ggplot(ocorrencias_por_ano, aes(x = ANO, y = Contagem)) +
-  geom_line(color = "blue") +
-  geom_point(color = "red") +
-  labs(title = "Ocorrências por Ano",
-       x = "Ano",
-       y = "Contagem") +
-  theme_minimal()
+# ----- Estruturando dados espaciais para analise espacial ---------
 
-# Converte um gráfico ggplot2 para plotly
-graf_1<- ggplot(base_cr_hom_trans, aes(x = MES, fill = HORA)) +
-  geom_bar(position = "stack") +
-  labs(title = "Ocorrência Mensal de crimes de homofobia e transfobia",
-       x = "Mês",
-       y = "Quantidade",
-       fill = "Hora do dia") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# Importa dados sobre os municipios do estado do Ceara
+municipios_ce <- read_municipality(code_muni = "CE", year = 2020)
 
-ggplotly(graf_1)
+# Calcula a quantidade de crimes por municipio
+crimes_por_municipio <- base_cr_hom_trans %>%
+  group_by(MUNICIPIO) %>%
+  summarise(QUANTIDADE = n())
 
-# Ordenar os dias da semana
-base_cr_hom_trans$DIA_SEMANA <- factor(base_cr_hom_trans$DIA_SEMANA, 
-                                       levels = c("DOMINGO", "SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA", "SABADO"))
-# graf 2
-graf_2 <- ggplot(base_cr_hom_trans, aes(x = DIA_SEMANA)) +
-  geom_bar(position = "stack") +
-  labs(title = "Distribuição diária dos crimes de homofobia e transfobia",
-       x = "Dia da Semana",
-       y = "Quantidade") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+## Padronizando informacoes
 
-ggplotly(graf_2)
+# Transforma observacoes para maiusculo
+municipios_ce <- municipios_ce %>%
+  mutate_at(vars(setdiff(names(.), c("code_region", "geom"))), toupper)
 
-# Utilizando o rcolorbrewer para usar paletas de cores predeterminadas
-graf_3 <- ggplot(base_cr_hom_trans, aes(x = DIA_SEMANA, fill = DIA_SEMANA)) +
-  geom_bar(position = "stack") +
-  labs(title = "Distribuição diária dos crimes de homofobia e transfobia",
-       x = "Dia da Semana",
-       y = "Quantidade") +
-  scale_fill_brewer(palette = "Set3") + # Escolha a paleta de cores que preferir
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# Remove acentos e caracteres especiais
+municipios_ce <- municipios_ce %>%
+  mutate(across(!geom, rmacento))
 
-print(graf_3)
 
-# TODOS OS GRAFICOS ABAIXO PRECISAO DE REVISAO E SAO APENAS TEMPORARIOS
-# # Gráfico de barras da quantidade de ocorrências por mês
-# ggplot(base_cr_hom_trans, aes(x = MES)) +
-#   geom_bar(fill = "skyblue", color = "black") +
-#   labs(title = "Ocorrências por Mês",
-#        x = "Mês",
-#        y = "Contagem") +
-#   theme_minimal()
-# 
-# # Gráfico de dispersão da idade das vítimas
-# ggplot(base_cr_hom_trans, aes(x = V_IDADE, y = outra_variavel_numerica)) +
-#   geom_point(color = "darkgreen") +
-#   labs(title = "Idade das Vítimas vs. Outra Variável",
-#        x = "Idade da Vítima",
-#        y = "Outra Variável") +
-#   theme_minimal()
-# 
-# 
-# # Supondo que você tenha uma coluna chamada "latitude" e outra "longitude" em seu dataframe
-# # Converta suas coordenadas em um objeto sf
-# coords <- st_as_sf(base_cr_hom_trans, coords = c("longitude", "latitude"), crs = 4326)
-# 
-# # Crie um mapa básico de pontos
-# ggplot() +
-#   geom_sf(data = coords) +
-#   labs(title = "Distribuição Espacial dos Dados",
-#        caption = "Fonte: Seus Dados") +
-#   theme_minimal()
+# Une  as bases de dados de crimes com a base de dados espaciais
+mapa_crimes <- left_join(municipios_ce, crimes_por_municipio, by = c("name_muni" = "MUNICIPIO"))
