@@ -12,7 +12,7 @@ Documentacao com informacoes das bases e scripts para a modelagem dos bancos de 
 4. Acesse o link a seguir para obter mais informações sobre os dados na integra: https://www.sspds.ce.gov.br/indicadores-de-seguranca-publica/.
 
 5. Para a base de crimes de homofobia e transfobia o intervalo de tempo dos dados obtidos vai 2021 a 2023.
-  5.1 Para a base de crimes sexuais o intervalo de tempo dos dados obtidos vai de 2009 a 2023.
+5.1 Para a base de crimes sexuais o intervalo de tempo dos dados obtidos vai de 2009 a 2023.
 
 6. Os dados obtidos em ambas as bases são todas relacionadas a informações de vitimas.
 
