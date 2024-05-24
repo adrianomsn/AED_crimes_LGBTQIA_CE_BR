@@ -20,19 +20,30 @@ Documentacao com informacoes das bases e scripts para a modelagem dos bancos de 
 
 # Principais Insights gerados por essa análise
 
-1 - Os meses mais violentos nos ultimos três anos para a comunidade LGBTQIA+ foram: Junho, Agosto, Outubro e Dezembro;
+Olá, pessoal! Finalizei um projeto voltado para análise de dados sobre o tema da violência contra comunidade LGBTQIA+ no estado do Ceará. Esse tema é muito interessante e merece ser estudado e debatido amplamente e ainda de quebra foi útil para desenvolver um pouco mais minhas habilidades analíticas e de programação em R. Espero que gostem! 😉 
 
-2 - Nos ultimos 3 anos, o ano de 2023 demonstrou o maior número de crimes contra pessoas LGBTQIA+;
 
-3 - O turno que ocorre esse tipo de violência com mais frequência é o turno da tarde e o turno que menor ocorreu violência foi a madrugada;
 
-4 - O perfil de maior vulnerabilidade é composto por homem cis gay e mulher cis lésbica com faixa etária de 18-29 anos de idade, raça parda, com ensino médio completo e que mora/frequenta a região metropolitana de fortaleza;
+Segue abaixo os principais Insights gerados:
 
-5 - O local mais frequente onde ocorreram esses crimes foram local público (56,37%), seguido da própria residência ou de conhecidos(28,7%) e por fim na internet (12,88%) do total;
 
-6 - Com base nos testes estatísticos feitos a amostra segue distribuição normal;
 
-7 - Cerca de mais de 50% dos municípios que relataram apenas 01 ocorrência de crime dessa natureza;
+1 - Os meses mais violentos nos últimos três anos para a comunidade LGBTQIA+  no Ceará foram: Junho, Agosto, Outubro e Dezembro;
+
+2 - Nos últimos 3 anos, 2023 foi o ano que  demonstrou o maior número de crimes contra pessoas LGBTQIA+, com um aumento de 116,16% em relação ao primeiro ano (2021);
+
+3 - O turno no qual ocorre a maior parcela dessa violência foi turno da tarde,  já o turno que menos ocorreu violência foi o da madrugada;
+
+4 - O perfil de maior vulnerabilidade traçado é composto por homem cis gay e mulher cis lésbica com faixa etária de 18-29 anos de idade, raça parda, com ensino médio completo e que mora/frequenta a região metropolitana de fortaleza;
+
+5 - A localidade relatada onde mais frequentemente ocorrem esses crimes foram: Local público (56,37%), seguido da própria residência ou de conhecidos (28,7%) e por fim na internet (12,88%);
+
+6 - Cerca de mais de 50% dos municípios que relataram crimes desta natureza tiveram 1 ocorrência;
+
+7 - O município que mais registrou crimes de natureza LGBTfóbica, foi a capital Fortaleza.
+
+8 - Com base nos testes estatísticos feitos a amostra segue distribuição normal;
+
 
 para uma leitura mais detalhada dessa análise, confira o artigo publicado no meu perfil no medium.
 https://medium.com/@adrianomsn/
