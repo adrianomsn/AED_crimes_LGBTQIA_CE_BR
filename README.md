@@ -17,3 +17,16 @@ Documentacao com informacoes das bases e scripts para a modelagem dos bancos de 
 6. Os dados obtidos em ambas as bases são todas relacionadas a informações de vitimas.
 
 7. Projeto iniciado mantido unicamente pelo Autor: Adriano Neto.
+
+# Principais Insights gerados por essa análise
+
+1 - Os meses mais violentos nos ultimos três anos para a comunidade LGBTQIA+ foram: Junho, Agosto, Outubro e Dezembro;
+2 - Nos ultimos 3 anos, o ano de 2023 demonstrou o maior número de crimes contra pessoas LGBTQIA+;
+3 - O turno que ocorre esse tipo de violência com mais frequência é o turno da tarde e o turno que menor ocorreu violência foi a madrugada;
+4 - O perfil de maior vulnerabilidade é composto por homem cis gay e mulher cis lésbica com faixa etária de 18-29 anos de idade, raça parda, com ensino médio completo e que mora/frequenta a região metropolitana de fortaleza;
+5 - O local mais frequente onde ocorreram esses crimes foram local público (56,37%), seguido da própria residência ou de conhecidos(28,7%) e por fim na internet (12,88%) do total;
+6 - Com base nos testes estatísticos feitos a amostra segue distribuição normal;
+7 - Cerca de mais de 50% dos municípios que relataram apenas 01 ocorrência de crime dessa natureza;
+
+para uma leitura mais detalhada dessa análise, confira o artigo publicado no meu perfil no medium.
+https://medium.com/@adrianomsn/
