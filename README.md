@@ -18,14 +18,12 @@ Documentacao com informacoes das bases e scripts para a modelagem dos bancos de 
 
 7. Projeto iniciado mantido unicamente pelo Autor: Adriano Neto.
 
-# Principais Insights gerados por essa análise
+8. O projeto buscará expandir essas análise posteriormente para indicadores de crimes sexuais.
 
 Olá, pessoal! Finalizei um projeto voltado para análise de dados sobre o tema da violência contra comunidade LGBTQIA+ no estado do Ceará. Esse tema é muito interessante e merece ser estudado e debatido amplamente e ainda de quebra foi útil para desenvolver um pouco mais minhas habilidades analíticas e de programação em R. Espero que gostem! 😉 
 
 
-
-Segue abaixo os principais Insights gerados:
-
+# Principais Insights gerados por essa análise
 
 
 1 - Os meses mais violentos nos últimos três anos para a comunidade LGBTQIA+  no Ceará foram: Junho, Agosto, Outubro e Dezembro;
@@ -45,5 +43,5 @@ Segue abaixo os principais Insights gerados:
 8 - Com base nos testes estatísticos feitos a amostra segue distribuição normal;
 
 
-para uma leitura mais detalhada dessa análise, confira o artigo publicado no meu perfil no medium.
+para uma leitura mais detalhada da análise, confira os artigos publicados no meu perfil do medium.
 https://medium.com/@adrianomsn/
