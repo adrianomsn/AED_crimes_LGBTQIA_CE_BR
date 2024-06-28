@@ -1,47 +1,43 @@
-# AED_crimes_LGBTQIA+_CE_BR
-Projeto voltado para manipulação e análise exploratória de dados sobre criminalidade e violência no estado do Ceará, mais especificamente sobre crimes sexuais, de homofobia e transfobia.
+# Análise do perfil de vítimas da violência contra a comunidade LGBTQIA+ no Ceará: Uma Análise Exploratória de Dados
 
-Documentacao com informacoes das bases e scripts para a modelagem dos bancos de dados e analise exploratória sobre crimes sexuais, crimes de homofobia e transfobia no estado do Ceara.
+Projeto aborda o processo de extração, carregamento, modelagem e análise de dados sobre violência no estado do Ceará, visando gerar evidências iniciais por meio de um mapeamento do perfil de vítimas de crimes de violência contra a comunidade LGBTQIA+.
 
-1. Este projeto tem como objetivo primordial analisar tendencias e padrões acerca dos grupos de vitimas que são mais afetados por esses tipos de crimes. Dessa maneira, tem-se como objetivo também gerar analises e informações que possam ser uteis para posteriores estudos na área de segurança publica a fim de mitigar tais ocorrências.
+Documentação com informações das bases e scripts para a modelagem dos bancos de dados e análise exploratória sobre crimes sexuais, crimes de homofobia e transfobia no estado do Ceará.
 
-2. Para utilizar do projeto você pode baixar qualquer base de dados do portal de segunca do estado do Ceara e outros estados e com isso manipular e adaptar para a realidade de cada dado seguindo os parâmetros utilizados, caso ache que há adaptabilidade.
+Este projeto tem como objetivo primordial analisar tendências e padrões acerca dos grupos de vítimas que são mais afetados por esses tipos de crimes. Dessa maneira, tem-se como objetivo também gerar análises e informações que possam ser úteis para posteriores estudos na área de segurança pública, a fim de mitigar tais ocorrências.
 
-3. As base de dados utilizadas foram obtidas por meio do portal da SSPDS Ceara, na sessão de indicadores de segurança pública relacionado a crimes de homofobia e transfobia (Para o dataframe 'base_cr_hom_trans') e sobre crimes sexuais (Para o dataframe 'base_cr_sex'). 
+Para utilizar o projeto, você pode baixar qualquer base de dados do portal de segurança do estado do Ceará e outros estados e, com isso, manipular e adaptar para a realidade de cada dado, seguindo os parâmetros utilizados, caso ache que há adaptabilidade.
 
-4. Acesse o link a seguir para obter mais informações sobre os dados na integra: https://www.sspds.ce.gov.br/indicadores-de-seguranca-publica/.
+As bases de dados utilizadas foram obtidas por meio do portal da SSPDS Ceará, na sessão de indicadores de segurança pública relacionados a crimes de homofobia e transfobia (para o dataframe 'base_cr_hom_trans') e sobre crimes sexuais (para o dataframe 'base_cr_sex').
 
-5. Para a base de crimes de homofobia e transfobia o intervalo de tempo dos dados obtidos vai 2021 a 2023.
-5.1 Para a base de crimes sexuais o intervalo de tempo dos dados obtidos vai de 2009 a 2023.
+Acesse o link a seguir para obter mais informações sobre os dados na íntegra: https://www.sspds.ce.gov.br/indicadores-de-seguranca-publica/.
 
-6. Os dados obtidos em ambas as bases são todas relacionadas a informações de vitimas.
+Para a base de crimes de homofobia e transfobia, o intervalo de tempo dos dados obtidos vai de 2021 a 2023.
+5.1. Para a base de crimes sexuais, o intervalo de tempo dos dados obtidos vai de 2009 a 2023.
 
-7. Projeto iniciado mantido unicamente pelo Autor: Adriano Neto.
+Os dados obtidos em ambas as bases são todos relacionados a informações de vítimas.
 
-8. O projeto buscará expandir essas análise posteriormente para indicadores de crimes sexuais.
+Projeto iniciado e mantido unicamente pelo Autor: Adriano Neto.
 
-Olá, pessoal! Finalizei um projeto voltado para análise de dados sobre o tema da violência contra comunidade LGBTQIA+ no estado do Ceará. Esse tema é muito interessante e merece ser estudado e debatido amplamente e ainda de quebra foi útil para desenvolver um pouco mais minhas habilidades analíticas e de programação em R. Espero que gostem! 😉 
+O projeto buscará expandir essas análises posteriormente para indicadores de crimes sexuais.
 
+Olá, pessoal! Finalizei um projeto voltado para análise de dados sobre o tema da violência contra a comunidade LGBTQIA+ no estado do Ceará. Esse tema é muito interessante e merece ser estudado e debatido amplamente e ainda de quebra foi útil para desenvolver um pouco mais minhas habilidades analíticas e de programação em R. Espero que gostem! 😉
 
-# Principais Insights gerados por essa análise
+Principais insights gerados por essa análise
+Os meses mais violentos nos últimos três anos para a comunidade LGBTQIA+ no Ceará foram: junho, agosto, outubro e dezembro;
 
+Nos últimos 3 anos, 2023 foi o ano que demonstrou o maior número de crimes contra pessoas LGBTQIA+, com um aumento de 116,16% em relação ao primeiro ano (2021);
 
-1 - Os meses mais violentos nos últimos três anos para a comunidade LGBTQIA+  no Ceará foram: Junho, Agosto, Outubro e Dezembro;
+O turno no qual ocorre a maior parcela dessa violência foi o da tarde, já o turno que menos ocorreu violência foi o da madrugada;
 
-2 - Nos últimos 3 anos, 2023 foi o ano que  demonstrou o maior número de crimes contra pessoas LGBTQIA+, com um aumento de 116,16% em relação ao primeiro ano (2021);
+O perfil de maior vulnerabilidade traçado é composto por homem cis gay e mulher cis lésbica com faixa etária de 18-29 anos de idade, raça parda, com ensino médio completo e que mora/frequenta a região metropolitana de Fortaleza;
 
-3 - O turno no qual ocorre a maior parcela dessa violência foi turno da tarde,  já o turno que menos ocorreu violência foi o da madrugada;
+A localidade relatada onde mais frequentemente ocorrem esses crimes foi: local público (56,37%), seguido da própria residência ou de conhecidos (28,7%) e por fim na internet (12,88%);
 
-4 - O perfil de maior vulnerabilidade traçado é composto por homem cis gay e mulher cis lésbica com faixa etária de 18-29 anos de idade, raça parda, com ensino médio completo e que mora/frequenta a região metropolitana de fortaleza;
+Cerca de mais de 50% dos municípios que relataram crimes dessa natureza tiveram 1 ocorrência;
 
-5 - A localidade relatada onde mais frequentemente ocorrem esses crimes foram: Local público (56,37%), seguido da própria residência ou de conhecidos (28,7%) e por fim na internet (12,88%);
+O município que mais registrou crimes de natureza LGBTfóbica foi a capital Fortaleza.
 
-6 - Cerca de mais de 50% dos municípios que relataram crimes desta natureza tiveram 1 ocorrência;
+Com base nos testes estatísticos feitos, a amostra segue distribuição normal.
 
-7 - O município que mais registrou crimes de natureza LGBTfóbica, foi a capital Fortaleza.
-
-8 - Com base nos testes estatísticos feitos a amostra segue distribuição normal;
-
-
-para uma leitura mais detalhada da análise, confira os artigos publicados no meu perfil do medium.
-https://medium.com/@adrianomsn/
+Para uma leitura mais detalhada da análise, confira os artigos publicados no meu perfil do Medium: https://medium.com/@adrianomsn/.
